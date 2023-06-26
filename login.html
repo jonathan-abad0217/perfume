@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <style>
+            @font-face {
+                font-family: "Ysabeau SC";
+                font-style: normal;
+                font-weight: 400;
+                src: url("static/YsabeauSC-Regular.ttf") format("truetype");
+            }
+
+            body {
+                font-family: "Ysabeau SC", Arial, sans-serif;
+                font-size: 20px;
+            }
+
+            /* Apply the font to specific elements as needed */
+            h1,
+            h2,
+            h3,
+            p {
+                font-family: "Ysabeau SC", Arial, sans-serif;
+            }
+
+            .login-container {
+                height: auto;
+                max-width: 400px;
+                margin: 0 auto;
+                padding: 30px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f2f2f2;
+            }
+
+            .login-container h2 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .form-group input {
+                width: 93.5%;
+                padding: 12px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 20px;
+            }
+
+            .btn-login {
+                display: block;
+                width: 100%;
+                padding: 12px;
+                margin-top: 15px;
+                border: none;
+                border-radius: 5px;
+                background-color: #2e2e2e;
+                color: #fff;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            .btn-login:hover {
+                background-color: #181818;
+            }
+        </style>
+    </head>
+    <body>
+        <br />
+        <br />
+        <br />
+
+        <div class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                    />
+                </div>
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+        </div>
+
+        <script>
+            // Get the login form element
+            const loginForm = document.getElementById("loginForm");
+
+            // Add event listener to the login form submission
+            loginForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Get the entered username and password
+                const usernameInput = document.getElementById("username");
+                const passwordInput = document.getElementById("password");
+                const username = usernameInput.value;
+                const password = passwordInput.value;
+
+                // Check if the username and password match the embedded user account
+                if (username === "username" && password === "12345") {
+                    // Save the login state to local storage
+                    localStorage.setItem("isLoggedIn", "true");
+
+                    // Redirect to the home page
+                    window.location.href = "home.html";
+                } else {
+                    alert("Invalid username or password");
+                }
+            });
+        </script>
+    </body>
+</html>
